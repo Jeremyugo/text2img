@@ -2,9 +2,11 @@ import os
 import torch
 from diffusers import StableDiffusionPipeline
 from PIL import Image
+from dotenv import load_dotenv
+load_dotenv()
 
 model_id = "CompVis/stable-diffusion-v1-4"
-token = os.environ["AUTH_TOKEN"]
+token = os.environ.get('AUTH_TOKEN')
 
 pipe = StableDiffusionPipeline.from_pretrained(
     model_id, revision="fp16", torch_dtype=torch.float16, use_auth_token=token
