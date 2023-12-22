@@ -7,7 +7,7 @@ from io import BytesIO
 
 st.title("Text2Img: Stable Diffusion App")
 st.info(
-    "Source: [HuggingFace Stable Diffusion with Diffusers model card](https://huggingface.co/CompVis/stable-diffusion-v1-4)"
+    "Source: [HuggingFace Stable Diffusion with Diffusers model card](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)"
 )
 
 with st.form("my_form"):

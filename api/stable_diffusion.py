@@ -1,16 +1,16 @@
 import os
 import torch
-from diffusers import StableDiffusionPipeline
+from diffusers import DiffusionPipeline
 from PIL import Image
 from dotenv import load_dotenv
 load_dotenv()
 
-model_id = "CompVis/stable-diffusion-v1-4"
+model_id = "stabilityai/stable-diffusion-xl-base-1.0"
 token = os.environ.get('AUTH_TOKEN')
 
-pipe = StableDiffusionPipeline.from_pretrained(
-    model_id, revision="fp16", torch_dtype=torch.float16, use_auth_token=token
-)
+pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", 
+                                         use_auth_token=token, torch_dtype=torch.float16, use_safetensors=True, 
+                                         variant="fp16")
 
 pipe = pipe.to("cuda")
 
